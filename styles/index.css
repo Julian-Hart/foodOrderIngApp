@@ -1,5 +1,6 @@
 body {
   font-family: "Smythe", system-ui;
+  cursor: default;
 }
 
 .main-container {
@@ -69,14 +70,59 @@ header h2 {
   margin-left: auto;
 }
 
+.add-btn:hover {
+  scale: 120%;
+  cursor: pointer;
+}
+
 /** order popup css**/
 
-.order-popup {
+#order-popup {
   position: fixed;
   bottom: 0;
   min-height: 400px;
   width: 600px;
   background-color: #d2d2d2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 40px;
+}
+
+#your-order-header {
+  text-align: center;
+  padding-bottom: 62px;
+}
+
+#order-popup h2 {
+  font-size: 28px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 22px;
+}
+
+.remove-btn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #bbbbbb;
+  font-size: 12px;
+}
+
+.remove-btn:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.order-item-price {
+  margin-left: auto;
+}
+
+#total-price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .buffer {
