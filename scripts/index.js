@@ -44,9 +44,9 @@ function renderMenu(menuArr) {
 function renderOrder() {
   const orderHtml = orderList
     .map(function (item) {
-      const { itemName, itemPrice } = item;
+      const { itemName, itemPrice, uuid } = item;
       return `
-            <div class="order-item" data-uuid="${uuidv4()}">
+            <div class="order-item" data-uuid="${uuid}">
               <h2>${itemName}</h2>
               <p class="remove-btn">remove</p>
               <h3 class="order-item-price">$${itemPrice}</h3>
@@ -54,9 +54,30 @@ function renderOrder() {
     })
     .join("");
   orderListDiv.innerHTML = orderHtml;
-  orderList
+  orderList.length > 0
     ? (orderPopup.style.display = "block")
     : (orderPopup.style.display = "none");
+
+  renderTotalPrice();
+
+  const removeBtns = document.querySelectorAll(".remove-btn");
+  removeBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const itemToRemove = orderList.find(function (item) {
+        return item.uuid == e.target.parentNode.dataset.uuid;
+      });
+      const index = orderList.indexOf(itemToRemove);
+      orderList.splice(index, 1);
+      renderOrder();
+    });
+  });
+}
+
+function renderTotalPrice() {
+  const totalPrice = orderList.reduce(function (currentPrice, nextPrice) {
+    return (currentPrice += nextPrice.itemPrice);
+  }, 0);
+  document.getElementById("total-price").innerHTML = "$" + totalPrice;
 }
 
 function addToOrder(itemId, menuArr) {
@@ -66,5 +87,6 @@ function addToOrder(itemId, menuArr) {
     itemPrice: price,
     uuid: uuidv4(),
   });
+  console.log(orderList);
   renderOrder();
 }

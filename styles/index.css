@@ -78,9 +78,9 @@ header h2 {
 /** order popup css**/
 
 #order-popup {
+  box-sizing: border-box;
   min-height: 400px;
   width: 600px;
-  background-color: #d2d2d2;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 10px 40px;
@@ -122,4 +122,22 @@ header h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+#complete-btn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  display: block;
+  width: 508px;
+  height: 60px;
+  margin: 53px auto 0 auto;
+  background-color: #16db99;
+  color: #ffffff;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#complete-btn:hover {
+  background-color: #77d1b3;
 }
