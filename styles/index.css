@@ -141,3 +141,39 @@ header h2 {
 #complete-btn:hover {
   background-color: #77d1b3;
 }
+
+/** Modal CSS**/
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -271px;
+  margin-left: -262px;
+  align-items: center;
+  height: 542px;
+  width: 524px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 150px 50px #888888;
+}
+
+#modal h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 47px;
+  margin-bottom: 47px;
+  text-align: center;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+}
+
+input {
+  height: 71px;
+  width: 475px;
+  margin: 0 auto 23px auto;
+  font-size: 20px;
+}
